@@ -1,4 +1,6 @@
 import Foundation
+import Matrix
+typealias Subsquare = (i: Int, j: Int, size: Int)
 
 func findMaxSquareByBust(in matrix: Matrix) -> Subsquare?  {
     func isFilledSquare(in matrix: Matrix, row: Int, col: Int, size: Int) -> Bool {

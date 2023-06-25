@@ -13,6 +13,7 @@ let package = Package(
     targets: [
         .executableTarget(name: "1.1"),
         .executableTarget(name: "1.2"),
-        .executableTarget(name: "1.3"),
+        .executableTarget(name: "1.3", dependencies: ["Matrix"]),
+        .target(name: "Matrix"),
     ]
 )
