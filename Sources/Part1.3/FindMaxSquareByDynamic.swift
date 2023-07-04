@@ -11,17 +11,20 @@ func findMaxSquareByDynamic(in matrix: Matrix) -> Subsquare?  {
         }
     }
     var subsquare: Subsquare?
-    for i in 0..<matrix.n {
-        for j in 0..<matrix.m {
-            let maxSquareSize = min(rows[i, j], coloms[i,j])
-            var realSquareSize = 0
-            for dv in stride(from: 1, through: maxSquareSize, by: 1) {
-                if i-dv >= 0, j-dv >= 0, min(rows[i, j-dv], coloms[i-dv, j]) >= maxSquareSize - dv {
-                    realSquareSize += 1
+    for i in stride(from: matrix.n-1, through: 0, by: -1) {
+        for j in stride(from: matrix.m-1, through: 0, by: -1) {
+            let size = min(rows[i, j], coloms[i, j])
+            if size > 0 {
+                var found = true
+                for h in stride(from: size-1, to: 0, by: -1) {
+                    if rows[i, j-h] < size {
+                        found = false
+                        break
+                    }
                 }
-            }
-            if realSquareSize > subsquare?.size ?? -1 {
-                subsquare = Subsquare(i: i - realSquareSize + 1, j: j - realSquareSize + 1, size: realSquareSize)
+                if found, (subsquare?.size ?? -1) < size {
+                    subsquare = Subsquare(i: i-size+1, j: j-size+1, size: size)
+                }
             }
         }
     }
