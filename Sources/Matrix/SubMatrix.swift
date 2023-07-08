@@ -1,7 +1,6 @@
 import Foundation
 
-public struct SubMatrix: Equatable, CustomStringConvertible
-{
+public struct SubMatrix: Equatable, CustomStringConvertible {
     public let i: Int
     public let j: Int
     public let width: Int
@@ -13,11 +12,11 @@ public struct SubMatrix: Equatable, CustomStringConvertible
         self.width = width
         self.height = height
     }
-    
+
     public static func == (lhs: SubMatrix, rhs: SubMatrix) -> Bool {
         lhs.i == rhs.i && lhs.j == rhs.j && lhs.width == rhs.width && lhs.height == rhs.height
     }
-    
+
     public var description: String {
         "\(type(of: self)) i:\(i), j:\(j), width:\(width), height: \(height)"
     }

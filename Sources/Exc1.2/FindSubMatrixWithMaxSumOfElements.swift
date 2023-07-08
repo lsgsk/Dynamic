@@ -1,12 +1,11 @@
 import Foundation
 import Matrix
 
-extension Matrix
-{
+extension Matrix {
     public func findSubMatrixWithMaxSumOfElements() -> SubMatrix {
         guard self.n != self.m else { return SubMatrix(i: 0, j: 0, width: n, height: m) }
         var cache = [Int](repeating: 0, count: self.n >= self.m ? self.n: self.m)
-        for i in 0..<self.n{
+        for i in 0..<self.n {
             for j in 0..<self.m {
                 cache[self.n >= self.m ? i: j] += self[i, j]
             }

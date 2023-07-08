@@ -1,7 +1,6 @@
 import Foundation
 
-enum FibError: Error
-{
+enum FibError: Error {
     case tooLargeIndex
 }
 

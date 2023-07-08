@@ -1,7 +1,6 @@
 import Matrix
 
-extension Matrix
-{
+extension Matrix {
     public func findSubMatrixWith(sumOfElements: Int) -> [SubMatrix] {
         func calculateSumOf(submatrix: SubMatrix) -> Int {
             var count = 0
@@ -12,7 +11,7 @@ extension Matrix
             }
             return count
         }
-        
+
         func findAllSubMatrixIn(matrix: SubMatrix, sumOfElements: Int) -> [SubMatrix] {
             var found = [SubMatrix]()
             for sWidth in 1...matrix.width {
@@ -25,7 +24,7 @@ extension Matrix
             }
             return found
         }
-        
+
         var found = [SubMatrix]()
         for i in 0..<self.n {
             for j in 0..<self.m {

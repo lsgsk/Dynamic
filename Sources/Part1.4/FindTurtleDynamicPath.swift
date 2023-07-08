@@ -1,20 +1,19 @@
 import Foundation
 import Matrix
 
-extension Matrix
-{
+extension Matrix {
     func findTurtlePathByDynamic() throws -> [Point] {
         guard let weights = Matrix(n: self.n, m: self.m) else { throw TurtleError.invalidMatrix }
-        
+
         func findMaxWeightFor(i: Int, j: Int) -> Int {
             switch (i, j) {
             case (0, self.m-1): return self[0, self.m-1]
             case (_, self.m-1): return weights[i-1, self.m-1] + self[i, self.m-1]
             case (0, _): return weights[0, j+1] + self[0, j]
-            default: return self[i,j] + max(max(weights[i-1,j], weights[i,j+1]), weights[i-1, j+1])
+            default: return self[i, j] + max(max(weights[i-1, j], weights[i, j+1]), weights[i-1, j+1])
             }
         }
-        
+
         func findTurtlePath() throws -> [Point] {
             var path = [Point]()
             var i = self.n-1
@@ -32,9 +31,9 @@ extension Matrix
             path.append(Point(i: i, j: j))
             return path.reversed()
         }
-        
+
         func findMoveWeights(i: Int, j: Int) {
-            weights[i,j] = findMaxWeightFor(i: i, j: j)
+            weights[i, j] = findMaxWeightFor(i: i, j: j)
             if i != self.n-1 || j != 0 {
                 for n in i+1..<self.n {
                     weights[n, j] = findMaxWeightFor(i: n, j: j)

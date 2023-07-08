@@ -21,13 +21,6 @@ func combDynamic(n: Int, k: Int) -> Int {
             triangle[i][j] = triangle[i-1][j-1]+triangle[i-1][j]
         }
     }
-//    for i in 0...n {
-//        var a = ""
-//        for j in 0...i {
-//            a += String(format: "%3d", triangle[i][j])
-//        }
-//        print("\(a)")
-//    }
     return triangle[n][k]
 }
 
