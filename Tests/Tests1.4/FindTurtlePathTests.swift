@@ -7,7 +7,7 @@ final class FindTurtlePathTests: XCTestCase
     func test_empty() throws {
         let matrix = Matrix(array: [5], n: 1, m: 1)!
         let result = [Point(i: 0, j: 0)]
-        XCTAssertEqual(try matrix.findPathByDynamic(), result)
+        XCTAssertEqual(try matrix.findTurtlePathByDynamic(), result)
     }
     
     func test_fromBook() throws {
@@ -24,7 +24,7 @@ final class FindTurtlePathTests: XCTestCase
             Point(i: 3, j: 1),
             Point(i: 3, j: 0),
         ]
-        XCTAssertEqual(try matrix.findPathByDynamic(), result)
+        XCTAssertEqual(try matrix.findTurtlePathByDynamic(), result)
     }
     
     func test_oneWay() {
@@ -41,7 +41,7 @@ final class FindTurtlePathTests: XCTestCase
             Point(i: 2, j: 0),
             Point(i: 3, j: 0),
         ]
-        XCTAssertEqual(try matrix.findPathByDynamic(), result)
+        XCTAssertEqual(try matrix.findTurtlePathByDynamic(), result)
     }
     
     func test_leftCornerWay() {
@@ -58,7 +58,7 @@ final class FindTurtlePathTests: XCTestCase
             Point(i: 2, j: 0),
             Point(i: 3, j: 0),
         ]
-        XCTAssertEqual(try matrix.findPathByDynamic(), result)
+        XCTAssertEqual(try matrix.findTurtlePathByDynamic(), result)
     }
     
     func test_rightCornerWay() {
@@ -75,7 +75,7 @@ final class FindTurtlePathTests: XCTestCase
             Point(i: 3, j: 1),
             Point(i: 3, j: 0),
         ]
-        XCTAssertEqual(try matrix.findPathByDynamic(), result)
+        XCTAssertEqual(try matrix.findTurtlePathByDynamic(), result)
     }
     
     func test_noWay() {
@@ -92,6 +92,6 @@ final class FindTurtlePathTests: XCTestCase
             Point(i: 2, j: 0),
             Point(i: 3, j: 0),
         ]
-        XCTAssertEqual(try matrix.findPathByDynamic(), result)
+        XCTAssertEqual(try matrix.findTurtlePathByDynamic(), result)
     }
 }

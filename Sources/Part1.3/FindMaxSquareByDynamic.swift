@@ -1,7 +1,7 @@
 import Foundation
 import Matrix
 
-func findMaxSquareByDynamic(in matrix: Matrix) -> Subsquare?  {
+func findMaxSquareByDynamic(in matrix: Matrix) -> SubSquare?  {
     guard let rows = Matrix(n: matrix.n, m: matrix.m) else { return nil }
     guard let coloms = Matrix(n: matrix.n, m: matrix.m) else { return nil }
     for i in 0..<matrix.n {
@@ -10,7 +10,7 @@ func findMaxSquareByDynamic(in matrix: Matrix) -> Subsquare?  {
             coloms[i, j] = j == 0 ? matrix[i, 0] : matrix[i, j] == 1 ? coloms[i, j-1] + 1 : 0
         }
     }
-    var subsquare: Subsquare?
+    var subsquare: SubSquare?
     for i in stride(from: matrix.n-1, through: 0, by: -1) {
         for j in stride(from: matrix.m-1, through: 0, by: -1) {
             let size = min(rows[i, j], coloms[i, j])
@@ -23,7 +23,7 @@ func findMaxSquareByDynamic(in matrix: Matrix) -> Subsquare?  {
                     }
                 }
                 if found, (subsquare?.size ?? -1) < size {
-                    subsquare = Subsquare(i: i-size+1, j: j-size+1, size: size)
+                    subsquare = SubSquare(i: i-size+1, j: j-size+1, size: size)
                 }
             }
         }

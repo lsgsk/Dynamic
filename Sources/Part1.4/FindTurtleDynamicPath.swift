@@ -3,10 +3,10 @@ import Matrix
 
 extension Matrix
 {
-    func findPathByDynamic() throws -> [Point] {
+    func findTurtlePathByDynamic() throws -> [Point] {
         guard let weights = Matrix(n: self.n, m: self.m) else { throw TurtleError.invalidMatrix }
         
-        func findMaxFor(i: Int, j: Int) -> Int {
+        func findMaxWeightFor(i: Int, j: Int) -> Int {
             switch (i, j) {
             case (0, self.m-1): return self[0, self.m-1]
             case (_, self.m-1): return weights[i-1, self.m-1] + self[i, self.m-1]
@@ -34,17 +34,18 @@ extension Matrix
         }
         
         func findMoveWeights(i: Int, j: Int) {
-            weights[i,j] = findMaxFor(i: i, j: j)
+            weights[i,j] = findMaxWeightFor(i: i, j: j)
             if i != self.n-1 || j != 0 {
                 for n in i+1..<self.n {
-                    weights[n, j] = findMaxFor(i: n, j: j)
+                    weights[n, j] = findMaxWeightFor(i: n, j: j)
                 }
                 for m in stride(from: j, through: 0, by: -1) {
-                    weights[i, m] = findMaxFor(i: i, j: m)
+                    weights[i, m] = findMaxWeightFor(i: i, j: m)
                 }
                 findMoveWeights(i: i+1, j: j-1)
             }
         }
+
         findMoveWeights(i: 0, j: self.m-1)
         return try findTurtlePath()
     }

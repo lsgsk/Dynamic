@@ -15,7 +15,7 @@ extension Matrix
             if i == self.n-1, j == 0 {
                 return self[i, j]
             }
-            else if i == matrix.n-1 {
+            else if i == n-1 {
                 return self[i, j] + find(i: i, j: j-1)
             }
             else if j == 0 {
