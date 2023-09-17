@@ -24,5 +24,5 @@ func combDynamic(n: Int, k: Int) -> Int {
     return triangle[n][k]
 }
 
-print(combRecursion(n: 5, k: 2))
+// print(combRecursion(n: 5, k: 2))
 print(combDynamic(n: 5, k: 2))

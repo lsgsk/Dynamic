@@ -11,7 +11,9 @@ let package = Package(
         .executable(name: "Part1.3", targets: ["Part1.3"]),
         .executable(name: "Part1.4", targets: ["Part1.4"]),
         .executable(name: "Exc1.1", targets: ["Exc1.1"]),
-        .executable(name: "Exc1.2", targets: ["Exc1.2"])
+        .executable(name: "Exc1.2", targets: ["Exc1.2"]),
+        .executable(name: "Exc1.4", targets: ["Exc1.4"]), //# не решена
+        .executable(name: "Exc1.5", targets: ["Exc1.5"])
     ],
     targets: [
         .plugin(name: "SwiftLint", capability: .buildTool(), dependencies: ["SwiftLintBinary"]),
@@ -26,6 +28,9 @@ let package = Package(
         .executableTarget(name: "Exc1.1", dependencies: ["Matrix"], plugins: plugins),
         .testTarget(name: "TestsExc1.1", dependencies: ["Exc1.1", "Matrix"]),
         .executableTarget(name: "Exc1.2", dependencies: ["Matrix"], plugins: plugins),
-        .testTarget(name: "TestsExc1.2", dependencies: ["Exc1.2", "Matrix"])
+        .testTarget(name: "TestsExc1.2", dependencies: ["Exc1.2", "Matrix"]),
+        .executableTarget(name: "Exc1.4", plugins: plugins),
+        .executableTarget(name: "Exc1.5", plugins: plugins),
+        .testTarget(name: "TestsExc1.5", dependencies: ["Exc1.5"]),
     ]
 )
