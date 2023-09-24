@@ -1,7 +1,7 @@
 import Foundation
 import Matrix
 
-func findMaxSquareByDynamic(in matrix: Matrix) -> SubSquare? {
+public func findMaxSquareByDynamic(in matrix: Matrix) -> SubSquare? {
     guard let rows = Matrix(n: matrix.n, m: matrix.m) else { return nil }
     guard let coloms = Matrix(n: matrix.n, m: matrix.m) else { return nil }
     for i in 0..<matrix.n {

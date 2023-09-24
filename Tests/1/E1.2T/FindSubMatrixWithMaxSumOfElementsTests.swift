@@ -1,5 +1,5 @@
 import XCTest
-@testable import Exc1_2
+@testable import E1_2
 @testable import Matrix
 
 final class FindSubMatrixWithMaxSumOfElementsTests: XCTestCase

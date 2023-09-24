@@ -1,6 +1,6 @@
 import XCTest
-@testable import Part1_4
-@testable import Matrix
+import Matrix
+@testable import C1_4
 
 final class FindTurtlePathTests: XCTestCase
 {

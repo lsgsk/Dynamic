@@ -1,5 +1,5 @@
 import XCTest
-@testable import Exc1_1
+@testable import E1_1
 @testable import Matrix
 
 final class FindSubMatrixesWithElementsCountTests: XCTestCase

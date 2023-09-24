@@ -1,6 +1,6 @@
 import XCTest
-@testable import Part1_3
-@testable import Matrix
+import C1_3
+import Matrix
 
 final class FindMaxSquareTests: XCTestCase
 {

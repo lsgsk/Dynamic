@@ -1,5 +1,5 @@
 import XCTest
-import Exc1_5
+import E1_5
 
 final class CombInLineArrayTests: XCTestCase
 {

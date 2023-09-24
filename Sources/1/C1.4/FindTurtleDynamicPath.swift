@@ -7,10 +7,10 @@ extension Matrix {
 
         func findMaxWeightFor(i: Int, j: Int) -> Int {
             switch (i, j) {
-            case (0, self.m-1): return self[0, self.m-1]
-            case (_, self.m-1): return weights[i-1, self.m-1] + self[i, self.m-1]
-            case (0, _): return weights[0, j+1] + self[0, j]
-            default: return self[i, j] + max(max(weights[i-1, j], weights[i, j+1]), weights[i-1, j+1])
+            case (0, self.m-1): self[0, self.m-1]
+            case (_, self.m-1): weights[i-1, self.m-1] + self[i, self.m-1]
+            case (0, _): weights[0, j+1] + self[0, j]
+            default: self[i, j] + max(max(weights[i-1, j], weights[i, j+1]), weights[i-1, j+1])
             }
         }
 
